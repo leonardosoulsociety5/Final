@@ -8,10 +8,14 @@ public class OrcBehavior : MonoBehaviour
     Transform maincharacter;
     bool isAttacking;
     bool isPatrolling;
+    public float speed;
+
+    private float oldPosition = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
         maincharacter = FindObjectOfType<RubyController>().transform;
+        oldPosition = transform.position.x;
     }
 
     // Update is called once per frame
@@ -19,7 +23,7 @@ public class OrcBehavior : MonoBehaviour
     {
         if(!isAttacking)
         {
-        transform.position=Vector3.MoveTowards(transform.position,maincharacter.position,0.03f);
+        transform.position=Vector3.MoveTowards(transform.position,maincharacter.position,speed);
         GetComponent<Animator>().SetFloat("speed" ,0.11f );       
         }
         if(isPatrolling)
@@ -31,6 +35,16 @@ public class OrcBehavior : MonoBehaviour
                 isPatrolling = false;
             }
         }
+
+        if(transform.position.x > oldPosition){
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if(transform.position.x < oldPosition){
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        oldPosition = transform.position.x;
     }
 
     void Findwalkpoint()
@@ -39,7 +53,7 @@ public class OrcBehavior : MonoBehaviour
 
     }
 
-    void OnCollisionStay2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         RubyController player = other.gameObject.GetComponent<RubyController>();
 
@@ -54,11 +68,11 @@ public class OrcBehavior : MonoBehaviour
         if(other.gameObject.CompareTag("Lake"))
         {
             Findwalkpoint();
-        isPatrolling = true;
+            isPatrolling = true;
         }
     }
    
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         RubyController player = other.gameObject.GetComponent<RubyController>();
 
@@ -73,4 +87,5 @@ public class OrcBehavior : MonoBehaviour
     {
       FindObjectOfType<RubyController>().ChangeHealth(-2);  
     } 
+
 }
