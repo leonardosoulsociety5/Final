@@ -111,6 +111,11 @@ public class RubyController : MonoBehaviour
                 {
                     character.DisplayDialog();
                 }
+                 Knight knight = hit.collider.GetComponent<Knight>();
+                if (knight != null)
+                {
+                    knight.DisplayDialog();
+                }
             }
         }
          // remember you need to add "using UnityEngine.SceneManagement" to the top of your script to use the scene manager!  

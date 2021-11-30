@@ -28,11 +28,24 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         EnemyController e = other.collider.GetComponent<EnemyController>();
-        if (e != null)
+        if (e != null )
         {
             e.Fix();
         }
+        
 
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        OrcBehavior o = other.GetComponent<OrcBehavior>();
+        if(o != null){
+            o.DamageOrc();
+            Destroy(gameObject);
+        } 
+
+         
+
     }
 }

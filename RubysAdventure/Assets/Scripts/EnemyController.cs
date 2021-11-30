@@ -29,9 +29,14 @@ public class EnemyController : MonoBehaviour
 
     public RubyController ruby;
 
+    public AudioClip fixedSound;
+
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
@@ -119,12 +124,14 @@ public class EnemyController : MonoBehaviour
     public void Fix()
     {
         ruby.currentrobotsfixt++;
+        sprite.material.SetColor("_Color", Color.white);
         broken = false;
         rigidbody2D.simulated = false;
         //optional if you added the fixed animation
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
         ruby.scoreText.text = "Score: " + ruby.currentrobotsfixt;
+        audioSource.PlayOneShot(fixedSound);
         if(FindObjectOfType<RubyController>().currentrobotsfixt>=4)
         {
             if(SceneManager.GetActiveScene().name=="Level 22")
@@ -143,8 +150,6 @@ public class EnemyController : MonoBehaviour
             nextlevelCanvas.SetActive(true);
             loseCanvas.SetActive(false);
             DialogueBoxCanvas.SetActive(false);
-            //FindObjectOfType<RubyController>().BGmusic.clip=ruby.winsound;
-            //FindObjectOfType<RubyController>().BGmusic.Play();
             }
          
         }

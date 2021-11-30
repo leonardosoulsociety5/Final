@@ -10,7 +10,11 @@ public class OrcBehavior : MonoBehaviour
     bool isPatrolling;
     public float speed;
 
+    public AudioClip hurtSound;
+
     private float oldPosition = 0.0f;
+
+    public int health = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,5 +91,21 @@ public class OrcBehavior : MonoBehaviour
     {
       FindObjectOfType<RubyController>().ChangeHealth(-2);  
     } 
+
+    public void DamageOrc()
+    {
+        AudioSource source = GetComponent<AudioSource>();
+        source.PlayOneShot(hurtSound);
+        health--;
+
+        if(health == 0){
+            StartCoroutine(DestroyGameObject());
+        }
+    }
+
+    IEnumerator DestroyGameObject( ){
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
+    }
 
 }
