@@ -49,6 +49,8 @@ public class RubyController : MonoBehaviour
 
     public Text scoreText;
 
+    public bool gameWon;
+
     void Start()
     {
         uptadecogstext();
@@ -124,11 +126,14 @@ public class RubyController : MonoBehaviour
         {
 
             if (gameOver == true)
-
             {
 
               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
 
+            }
+
+            if(gameWon == true){
+                SceneManager.LoadScene("Gameplay");
             }
         }
 

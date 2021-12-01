@@ -136,7 +136,7 @@ public class EnemyController : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name=="Level 22")
             {
-            FindObjectOfType<RubyController>().gameOver = true;
+            FindObjectOfType<RubyController>().gameWon = true;
             mainCanvas.SetActive(true);
             winCanvas.SetActive(true);
             loseCanvas.SetActive(false);
