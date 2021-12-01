@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
+using TMPro;
 public class Knight : MonoBehaviour
 {
     public float displayTime = 4.0f;
     public GameObject dialogBox;
-
+    public TextMeshProUGUI dialog;
+    public OrcBehavior orc;
     
     float timerDisplay;
 
@@ -26,21 +28,20 @@ public class Knight : MonoBehaviour
                 dialogBox.SetActive(false);
             }
         }
+
+        if(orc == null){
+            dialog.SetText("Thank you for defeating the orc! Your reward is unlimited ammo!");
+        }
     }
 
     public void DisplayDialog()
     {
         timerDisplay = displayTime;
         dialogBox.SetActive(true);
-        if (FindObjectOfType<RubyController>().currentrobotsfixt>=FindObjectOfType<RubyController>().robotsfixuntillevel)
-        {
-            SceneManager.LoadScene("Level 22");
+        if(orc == null){
+            FindObjectOfType<RubyController>().cogs += 100;  
+            FindObjectOfType<RubyController>().uptadecogstext();
         }
-    }
-    public void GameDialogue()
-    {
-        timerDisplay = displayTime;
-        dialogBox.SetActive(true);
     }
 }
 

@@ -37,9 +37,4 @@ public class NonPlayerCharacter : MonoBehaviour
             SceneManager.LoadScene("Level 22");
         }
     }
-    public void GameDialogue()
-    {
-        timerDisplay = displayTime;
-        dialogBox.SetActive(true);
-    }
 }

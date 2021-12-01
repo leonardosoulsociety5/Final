@@ -4055,6 +4055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayTime: 4
   dialogBox: {fileID: 2053682122}
+  dialog: {fileID: 2085807870}
+  orc: {fileID: 1363088514}
 --- !u!1 &1056369235
 GameObject:
   m_ObjectHideFlags: 0
@@ -23276,8 +23278,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HEY ! \nThese Robots and the orc are terorizing the village. If you help
-    me I will reward you with unlimated cogs."
+  m_text: "HEY ! \nThe Orc is terrorizing the village. If you defeat him you will
+    be rewarded ."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
