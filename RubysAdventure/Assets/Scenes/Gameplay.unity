@@ -714,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 359.43, y: 163.1}
+  m_AnchoredPosition: {x: 508, y: 279}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!198 &340900752 stripped
@@ -17388,7 +17388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 387.46, y: 195.47}
+  m_AnchoredPosition: {x: 508, y: 313}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1756228354
@@ -17963,7 +17963,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e406c04157c663a43b859646b7ad3c2a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.509
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18251,6 +18251,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MyCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963257493367236550, guid: b3a865a0bf68f2447af402fe3730bb91,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963257493367236550, guid: b3a865a0bf68f2447af402fe3730bb91,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 5963257493367236600, guid: b3a865a0bf68f2447af402fe3730bb91,
         type: 3}
